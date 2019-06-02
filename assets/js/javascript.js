@@ -22,6 +22,7 @@ var frequency = 0;
 var nextArrival = "";
 
 $("#add-train-btn").on("click", function (event) {
+    
     event.preventDefault();
 
     var trainName = $("#train-name-input").val().trim();
@@ -34,7 +35,11 @@ $("#add-train-btn").on("click", function (event) {
         destination: destination,
         frequency: frequency,
         nextArrival: nextArrival
-    });
+    })
+    $("#train-name-input").val('');
+    $("#destination-input").val('');
+    $("#frequency-input").val('');
+    $("#nextArrival-input").val('');
 
 });
 
@@ -80,6 +85,6 @@ database.ref().on("child_added", function (snapshot) {
 }, function (errorObject) {
     console.log("Errors handled: " + errorObject.code);
 });
-$("tbody").empty();
+
 
 
