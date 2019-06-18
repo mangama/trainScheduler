@@ -59,7 +59,7 @@ database.ref().on("child_added", function (snapshot) {
   
 
     // First Time (pushed back 1 year to make sure it comes before current time)
-    var firstTimeConverted = moment(firstTime, "hh:mm").subtract(1, "years");
+    var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
 
     // Current Time
     var currentTime = moment();
@@ -75,10 +75,10 @@ database.ref().on("child_added", function (snapshot) {
 
     // Next Train
     var nextTrain = currentTime.add(tMinutesTillTrain, "minutes");
-    var nextTrainFormatted = moment(nextTrain).format("hh:mm A");
+    var nextTrainFormatted = moment(nextTrain).format("hh:mm");
 
     if (moment(firstTime, "hh:mm").diff(currentTime) > 0) {
-        nextTrainFormatted=moment(firstTime, "hh:mm").format("hh:mm A");
+        nextTrainFormatted=moment(firstTime, "hh:mm").format("hh:mm");
         tMinutesTillTrain = moment(firstTime, "hh:mm").diff(currentTime, "minutes");
     } 
     
