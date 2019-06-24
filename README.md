@@ -2,7 +2,7 @@
 
 
 
-## Instructions
+## Steps
 
 Made sure that the app suits this basic specifications:
 
